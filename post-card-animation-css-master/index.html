@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post card CSS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="envelope backgound.svg" alt="Avatar" />
+          </div>
+          <div class="flip-card-back">
+            <!-- <img src="outerflap.svg"  alt="" style="position: absolute;"> -->
+
+            <img
+              src="inner_part.svg"
+              alt=""
+              style="position: absolute; z-index: -3"
+            />
+
+            <div id="card">
+              <div class="textbox">Post Card</div>
+            </div>
+
+            <img
+              src="outerflap.svg"
+              class="outerflap"
+              alt=""
+              style="position: absolute; z-index: 0"
+            />
+
+            <img
+              src="envelope front.svg"
+              id="env_front"
+              alt=""
+              style="z-index: 4"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const envelope = document.getElementsByClassName("flip-card")[0];
+      const flap = document.getElementsByClassName("outerflap")[0];
+      const card = document.getElementById("card");
+
+      envelope.addEventListener("mouseover", () => {
+        setTimeout(() => {
+          flap.classList.add("outerflap-animation");
+          flap.style.zIndex = "-5";
+        }, 1500);
+
+        setTimeout(() => {
+          card.classList.add("postcard-animation");
+          setTimeout(() => {
+            card.style.zIndex = "5";
+          }, 2500);
+        }, 2500);
+      });
+    </script>
+  </body>
+</html>
